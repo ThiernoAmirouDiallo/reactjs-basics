@@ -8,10 +8,14 @@ export default class Home extends React.Component
 
         this.state= {
             age:props.initialAge,
-            status:"initialVal"
+            status:0,
+            homeLink: "Changed Link"
         }
     }
 
+    onChangeLinkName(){
+        this.props.changeLink(this.state.homeLink);
+    }
     onMakeOlder() {
         this.setState({
             age:this.state.age+3
@@ -29,6 +33,8 @@ export default class Home extends React.Component
                 <button onClick={this.onMakeOlder.bind(this)} className="btn btn-primary">Make me older</button>
                 <hr/>
                 <button onClick={this.props.greet} className="btn btn-primary">Greet</button>
+                <hr/>
+                <button onClick={this.onChangeLinkName.bind(this)} className="btn btn-primary">Change Header Link</button>
             </div>
         );
     }
@@ -37,5 +43,6 @@ export default class Home extends React.Component
 Home.propTypes = {
     name: PropTypes.string,
     initialAge: PropTypes.number,
-    greet: PropTypes.func
+    greet: PropTypes.func,
+    changeLink: PropTypes.func
 }
