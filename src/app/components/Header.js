@@ -1,8 +1,7 @@
 import React from "react";
 
-export default class Header extends React.Component
+const Header = (props) =>
 {
-    render(){
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <a className="navbar-brand" href="#">Navbar</a>
@@ -28,6 +27,7 @@ export default class Header extends React.Component
                 </div>
             </nav>
         );
-    }
 }
+
+export default Header;
 
