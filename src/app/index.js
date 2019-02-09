@@ -11,13 +11,13 @@ class App extends React.Component
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-xs-10 col-xs-offset-1">
+                    <div className="col-sm-10 col-sm-offset-1">
                         <Header />
                     </div>
                 </div>
 
                 <div className="row">
-                    <div className="col-xs-10 col-xs-offset-1">
+                    <div className="col-sm-10 col-sm-offset-1">
                         <Home name={"Max"} age={27}/>
                     </div>
                 </div>
