@@ -6,11 +6,16 @@ export default class Home extends React.Component
     constructor(props){
         super();
 
-        this.age=props.age
+        this.state= {
+            age:props.initialAge,
+            status:"initialVal"
+        }
     }
 
     onMakeOlder() {
-        this.age+=3;
+        this.setState({
+            age:this.state.age+3
+        })
         console.log(this.age);
     }
 
@@ -18,7 +23,8 @@ export default class Home extends React.Component
         return (
             <div>
                 <p>In a new component!</p>
-                <p>Your name is {this.props.name}, your age is {this.age}</p>
+                <p>Your name is {this.props.name}, your age is {this.state.age}</p>
+                <p>Status: {this.state.status}</p>
                 <hr/>
                 <button onClick={this.onMakeOlder.bind(this)} className="btn btn-primary">Make me older</button>
             </div>
@@ -28,5 +34,5 @@ export default class Home extends React.Component
 
 Home.propTypes = {
     name: PropTypes.string,
-    age: PropTypes.number
+    initialAge: PropTypes.number
 }
