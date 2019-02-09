@@ -6,6 +6,9 @@ import Home from "./components/Home";
 
 class App extends React.Component
 {
+    onGreet(){
+        alert("Hello")
+    }
     render(){
 
         return (
@@ -18,7 +21,7 @@ class App extends React.Component
 
                 <div className="row">
                     <div className="col-sm-10 col-sm-offset-1">
-                        <Home name={"Max"} initialAge={27}/>
+                        <Home name={"Max"} initialAge={27} greet={this.onGreet}/>
                     </div>
                 </div>
             </div>
