@@ -1,49 +1,42 @@
 import React from "react";
 import { render } from "react-dom";
+//import {Router, Route, browserHistory } from "react-router"
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import Header from "./components/Header";
+
+import Root from "./components/Root";
 import Home from "./components/Home";
+import User from "./components/User";
+import Header from "./components/Header";
 
 class App extends React.Component
 {
-    constructor(){
-        super();
-        this.state={
-            homeLink : "Home"
-        }
+    constructor(props){
+        super(props);
     }
 
-    onGreet(){
-        alert("Hello")
-    }
-
-    onChangeLinkName(newLinkName){
-        this.setState({
-            homeLink:newLinkName
-        })
-    }
     render(){
-
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col-sm-10 col-sm-offset-1">
-                        <Header homeLink={this.state.homeLink}/>
+            <Router>
+
+                <div className="container">
+                    <div className="row">
+                        <div className="col-sm-10 col-sm-offset-1">
+                            <Header />
+                        </div>
+                    </div>
+
+                    <div className="row">
+                        <div className="col-sm-10 col-sm-offset-1">
+                            <Route exact path={"/"} component={Home}/>
+                            <Route path={"/home"} component={Home}/>
+                            <Route path={"/user/:id"} component={User}/>
+                        </div>
                     </div>
                 </div>
 
-                <div className="row">
-                    <div className="col-sm-10 col-sm-offset-1">
-                        <Home
-                            name={"Max"}
-                            initialAge={27}
-                            greet={this.onGreet}
-                            changeLink={this.onChangeLinkName.bind(this)}
-                            initialLinkName={this.state.homeLink}
-                        />
-                    </div>
-                </div>
-            </div>
+
+            </Router>
         );
     }
 }

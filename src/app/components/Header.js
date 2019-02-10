@@ -1,10 +1,9 @@
 import React from "react";
-
-const Header = (props) =>
-{
+import {Link} from 'react-router-dom';
+const Header = (props) => {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <a className="navbar-brand" href="#">Navbar</a>
+                <a className="navbar-brand" href="#">AwesomeApp</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -12,16 +11,10 @@ const Header = (props) =>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item active">
-                            <a className="nav-link" href="#">{props.homeLink} <span className="sr-only">(current)</span></a>
+                            <Link to={"/home"} className="nav-link">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Features</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link disabled" href="#">Disabled</a>
+                            <Link to={"/user/15"} className={"nav-link"}>User</Link>
                         </li>
                     </ul>
                 </div>
