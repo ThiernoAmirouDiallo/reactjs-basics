@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import { render } from "react-dom";
 //import {Router, Route, browserHistory } from "react-router"
 import { BrowserRouter as Router, Route } from 'react-router-dom'
@@ -42,3 +42,40 @@ class App extends React.Component
 }
 
 render(<App/>,window.document.getElementById("app"))
+
+*/
+
+import { createStore } from "redux";
+
+const reducer = (state,action) => {
+  switch (action.type){
+      case  "ADD":
+          state = state + action.payload;
+          break;
+      case "SUBTRACT":
+          state = state - action.payload;
+          break;
+  }
+  return state;
+};
+
+const store = createStore(reducer, 1);
+
+store.subscribe(() => {
+    console.log("Store updated :", store.getState());
+});
+
+store.dispatch({
+    type: "ADD",
+    payload:100
+});
+
+store.dispatch({
+    type: "ADD",
+    payload:22
+});
+
+store.dispatch({
+    type: "SUBTRACT",
+    payload:80
+});
