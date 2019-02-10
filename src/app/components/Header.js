@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import {Link, NavLink } from 'react-router-dom';
 const Header = (props) => {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -11,7 +11,7 @@ const Header = (props) => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item active">
-                            <Link to={"/home"} className="nav-link">Home</Link>
+                            <NavLink to={"/home"} className="nav-link" activeClassName={"active"}>Home</NavLink>
                         </li>
                         <li className="nav-item">
                             <Link to={"/user/15"} className={"nav-link"}>User</Link>
